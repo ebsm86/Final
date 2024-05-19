@@ -9,8 +9,8 @@ describe('Login Test Cases', () => {
   });
 
   it('should log in successfully with valid credentials', () => {
-    loginPage1.fillUsername('standard_user');
-    loginPage1.fillPassword('secret_sauce');
+    loginPage1.fillUsername('applytesters@mydomain.com');
+    loginPage1.fillPassword('Apply123!!!');
     loginPage1.submit();
 });
 });

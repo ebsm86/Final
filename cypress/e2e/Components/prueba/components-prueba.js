@@ -1,18 +1,18 @@
 class LoginPage1 {
     visit() {
-      cy.visit('https://www.saucedemo.com'); 
+      cy.visit('https://naveenautomationlabs.com/opencart/index.php?route=account/login'); 
     }
   
     fillUsername(name) {
-        cy.get('input[data-test="Username"]').type(name);
+        cy.get('#input-email').type(name);
     }
   
     fillPassword(password) {
-        cy.get('input[data-test="Password"]').type(password);
+        cy.get('#input-password').type(password);
     }
   
     submit() {
-        cy.get('input[data-test="login-button"]').click();
+        cy.get('form > .btn').click();
     }
   }
   export default LoginPage1; 
