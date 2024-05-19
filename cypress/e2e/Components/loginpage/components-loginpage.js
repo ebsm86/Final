@@ -4,11 +4,11 @@ class LoginPage {
     }
   
     fillUsername(name) {
-        cy.get('input[data-test="username"]').type(name);
+        cy.get('input[data-test="Username"]').type(name);
     }
   
     fillPassword(password) {
-        cy.get('input[data-test="password"]').type(password);
+        cy.get('input[data-test="Password"]').type(password);
     }
   
     submit() {
