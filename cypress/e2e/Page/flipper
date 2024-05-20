@@ -148,3 +148,75 @@ INSERT INTO VendorPreSales (year, month, day, category, preSaleSingleServe, budg
     ISOTONICOS
     ENERGIZANTES
     OTROS
+INSERT INTO VendorPreSales (year, month, day, category, preSaleSingleServe, budgetSingleServe, preSaleMultiServe, budgetMultiServe) VALUES 
+    (2024, 4, 20, 'JUGOS', 67, 22, 43, 288),
+    (2024, 4, 21, 'NECTAR_SOYA', 2, 23, 1, 66),
+    (2024, 4, 22, 'AGUAS', 240, 400, 120, 240),
+    (2024, 4, 23, 'AGUAS_SABORIZADAS', 44, 40, 11, 33),
+    (2024, 4, 24, 'ISOTONICOS', 123, 40, 111, 22),
+    (2024, 4, 25, 'ENERGIZANTES', 29, 33, 12, 12),
+    (2024, 4, 26, 'OTROS', 76, 90, 11, 90),
+    (2024, 4, 27, 'COCA_COLA', 24, 40, 12, 240),
+    (2024, 4, 28, 'SABORES', 34, 447, 2, 11),
+    (2024, 4, 29, 'JUGOS', 67, 22, 43, 288),
+    (2024, 4, 30, 'NECTAR_SOYA', 2, 23, 1, 66),
+    (2024, 5, 1, 'AGUAS', 240, 400, 120, 240),
+    (2024, 5, 2, 'AGUAS_SABORIZADAS', 44, 40, 11, 33),
+    (2024, 5, 3, 'ISOTONICOS', 123, 40, 111, 22),
+    (2024, 5, 4, 'ENERGIZANTES', 29, 33, 12, 12),
+    (2024, 5, 5, 'OTROS', 76, 90, 11, 90),
+    (2024, 5, 6, 'COCA_COLA', 24, 40, 12, 240),
+    (2024, 5, 7, 'SABORES', 34, 447, 2, 11),
+    (2024, 5, 8, 'JUGOS', 67, 22, 43, 288),
+    (2024, 5, 9, 'NECTAR_SOYA', 2, 23, 1, 66),
+    (2024, 5, 10, 'AGUAS', 240, 400, 120, 240),
+    (2024, 5, 11, 'AGUAS_SABORIZADAS', 44, 40, 11, 33),
+    (2024, 5, 12, 'ISOTONICOS', 123, 40, 111, 22),
+    (2024, 5, 13, 'ENERGIZANTES', 29, 33, 12, 12),
+    (2024, 5, 14, 'OTROS', 76, 90, 11, 90),
+    (2024, 5, 15, 'COCA_COLA', 24, 40, 12, 240),
+    (2024, 5, 16, 'SABORES', 35, 557, 2, 11),
+    (2024, 5, 17, 'JUGOS', 67, 22, 43, 288),
+    (2024, 5, 18, 'NECTAR_SOYA', 2, 23, 1, 66),
+    (2024, 5, 19, 'SABORES', 35, 557, 2, 11),
+    (2024, 5, 20, 'JUGOS', 67, 22, 43, 288)
+
+    const categories = [
+  'COCA_COLA', 'SABORES', 'JUGOS', 'NECTAR_SOYA', 
+  'AGUAS', 'AGUAS_SABORIZADAS', 'ISOTONICOS', 
+  'ENERGIZANTES', 'OTROS'
+];
+
+function randomValue(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function generateSQLForDate(date) {
+  const sqlStatements = [];
+  categories.forEach(category => {
+    const preSaleSingleServe = randomValue(10, 100);
+    const budgetSingleServe = randomValue(10, 100);
+    const preSaleMultiServe = randomValue(10, 100);
+    const budgetMultiServe = randomValue(100, 400);
+    sqlStatements.push(`(2024, ${date.getMonth() + 1}, ${date.getDate()}, '${category}', ${preSaleSingleServe}, ${budgetSingleServe}, ${preSaleMultiServe}, ${budgetMultiServe})`);
+  });
+  return sqlStatements.join(",\n");
+}
+
+function generateSQLForRange(startDate, endDate) {
+  let currentDate = new Date(startDate.getTime());
+  let sqlStatements = [];
+
+  while (currentDate <= endDate) {
+    sqlStatements.push(generateSQLForDate(currentDate));
+    currentDate.setDate(currentDate.getDate() + 1);
+  }
+
+  return "INSERT INTO VendorPreSales (year, month, day, category, preSaleSingleServe, budgetSingleServe, preSaleMultiServe, budgetMultiServe) VALUES \n" + sqlStatements.join(",\n") + ";";
+}
+
+const startDate = new Date(2024, 3, 20); // April 20, 2024 (note: January is 0)
+const endDate = new Date(2024, 4, 20); // May 20, 2024
+const sql = generateSQLForRange(startDate, endDate);
+
+console.log(sql);
