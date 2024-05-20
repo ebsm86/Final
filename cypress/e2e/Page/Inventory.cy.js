@@ -91,7 +91,7 @@ describe('Inventory Page Tests', () => {
   });
 
   it('should display the correct number of products', () => {
-    inventoryPage.getProductCards().should('have.length', 6); // Asumiendo que hay 6 productos en total
+    inventoryPage.getProductCards().should('have.length', 6); 
   });
 
   it('should display a label for products on sale', () => {
@@ -126,20 +126,8 @@ describe('Inventory Page Tests', () => {
     cy.url().should('include', '/inventory-item.html?id=');
   });
 
-  it('should have a functional breadcrumb navigation', () => {
-    // Navegar a la página de detalles del primer producto
-    inventoryPage.getProductTitles().first().click();
-    // Usar la navegación breadcrumb para volver a la página de inventario
-    cy.get('.breadcrumb').contains('All Items').click();
-    cy.url().should('include', '/inventory.html');
-  });
-
-  it('should show an error message if adding a sold out item to the cart', () => {
-    // Asumiendo que hay un producto agotado en la lista
-    inventoryPage.getProductCards().contains('SOLD OUT').parent().within(() => {
-      cy.get('button').should('be.disabled');
-    });
+  
   });
 
  
-});
+

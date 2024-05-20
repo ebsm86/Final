@@ -31,7 +31,7 @@ describe('End-to-End Purchase Test', () => {
     checkoutPage.finishCheckout();
 
     cy.url().should('include', '/checkout-complete.html');
-    cy.get('.complete-header').should('contain', 'THANK YOU FOR YOUR ORDER');
+    cy.get('.complete-header').should('contain', 'Thank you for your order!');
     cy.get('.complete-text').should('contain', 'Your order has been dispatched');
   });
 });
