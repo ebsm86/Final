@@ -18,7 +18,7 @@ describe('Checkout Tests', () => {
     loginPage.fillPassword('secret_sauce');
     loginPage.submit();
     
-    //inventoryPage.visit();
+    
     inventoryPage.getProductCards().first().find('button').click();
     cy.get('.shopping_cart_link').click();
     cartPage.getCheckoutButton().click();
@@ -60,7 +60,7 @@ describe('Checkout Tests', () => {
     checkoutPage.continueCheckout();
     checkoutPage.finishCheckout();
     cy.url().should('include', '/checkout-complete.html');
-    cy.get('.complete-header').should('contain', 'THANK YOU FOR YOUR ORDER');
+    cy.get('.complete-header').should('contain', 'Thank you for your order!');
   });
 });
  
