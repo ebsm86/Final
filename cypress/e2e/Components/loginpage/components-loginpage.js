@@ -1,18 +1,24 @@
 class LoginPage {
     visit() {
-      cy.visit('https://www.saucedemo.com'); 
+      cy.visit('https://www.saucedemo.com'); // Ajustar a la URL correcta si es diferente
     }
   
     fillUsername(name) {
-        cy.get('input[data-test="Username"]').type(name);
+      cy.get('[data-test=username]').type(name);
     }
   
     fillPassword(password) {
-        cy.get('input[data-test="Password"]').type(password);
+      cy.get('[data-test=password]').type(password);
     }
   
     submit() {
-        cy.get('input[data-test="login-button"]').click();
+      cy.get('[data-test=login-button]').click();
+    }
+  
+    errorMessage() {
+      return cy.get('[data-test=error]');
     }
   }
-  export default LoginPage; 
+  
+  export default LoginPage;
+
