@@ -16,7 +16,6 @@ describe('Cart Tests', () => {
     loginPage.fillPassword('secret_sauce');
     loginPage.submit();
     
-    //inventoryPage.visit();
     inventoryPage.getProductCards().first().find('button').click();
     inventoryPage.getProductCards().eq(1).find('button').click();
     
