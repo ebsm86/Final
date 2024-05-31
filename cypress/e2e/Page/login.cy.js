@@ -5,7 +5,7 @@ import InventoryPage from '../Components/Inventory/components-inventorypage';
 describe('Login Tests', () => {
   const loginPage = new LoginPage();
   beforeEach(() => {
-    cy.viewport(414, 896);
+    
     loginPage.visit();
   });
 

@@ -6,7 +6,7 @@ describe('Inventory Page Tests', () => {
   const loginPage = new LoginPage();
 
   beforeEach(() => {
-    cy.viewport(414, 896); 
+
     loginPage.visit();
     loginPage.fillUsername('standard_user');
     loginPage.fillPassword('secret_sauce');

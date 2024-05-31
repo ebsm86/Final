@@ -9,8 +9,6 @@ describe('Cart Tests', () => {
 
   beforeEach(() => {
     
-    cy.viewport(414, 896); 
-    
     loginPage.visit();
     loginPage.fillUsername('standard_user');
     loginPage.fillPassword('secret_sauce');

@@ -11,7 +11,7 @@ describe('Checkout Tests', () => {
 
   beforeEach(() => {
     
-    cy.viewport(414, 896); 
+     
     
     loginPage.visit();
     loginPage.fillUsername('standard_user');
