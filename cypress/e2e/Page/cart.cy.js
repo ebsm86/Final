@@ -41,6 +41,6 @@ describe('Cart Tests', () => {
 
   it('should update the cart badge when an item is removed', () => {
     cartPage.removeItem('Sauce Labs Backpack');
-    cy.get('.shopping_cart_badge').should('contain', 1);
+    inventoryPage.cartHasone();
   });
 });

@@ -1,6 +1,6 @@
 class LoginPage {
     visit() {
-      cy.visit('https://www.saucedemo.com'); // Ajustar a la URL correcta si es diferente
+      cy.visit('https://www.saucedemo.com'); 
     }
   
     fillUsername(name) {

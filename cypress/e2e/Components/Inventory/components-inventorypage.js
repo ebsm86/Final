@@ -57,6 +57,10 @@ verifyCartIsEmpty() {
   cy.get('.shopping_cart_badge').should('not.exist');
 }
 
+cartHasone() {
+  cy.get('.shopping_cart_badge').should('contain', 1);
+}
+
 verifyProductDetails() {
   cy.url().should('include', '/inventory-item.html?id=');
 }

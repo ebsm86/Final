@@ -14,13 +14,13 @@ describe('Inventory Page Tests', () => {
 
   it('should add a product to the cart', () => {
     inventoryPage.addFirstProductToCart();
-    cy.get('.shopping_cart_badge').should('contain', 1);
+    inventoryPage.cartHasone();
   });
 
   it('should remove a product from the cart', () => {
     inventoryPage.addFirstProductToCart();
     inventoryPage.removeFirstProductFromCart();
-    cy.get('.shopping_cart_badge').should('not.exist');
+    inventoryPage.verifyCartIsEmpty();
   });
 
   it('should navigate to the product details page when a product title is clicked', () => {

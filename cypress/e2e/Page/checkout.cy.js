@@ -10,15 +10,11 @@ describe('Checkout Tests', () => {
   const loginPage = new LoginPage();
 
   beforeEach(() => {
-    
-     
-    
     loginPage.visit();
     loginPage.fillUsername('standard_user');
     loginPage.fillPassword('secret_sauce');
     loginPage.submit();
-    
-    
+   
     inventoryPage.getProductCards().first().find('button').click();
     inventoryPage.navigateToCart();
     cartPage.getCheckoutButton().click();
