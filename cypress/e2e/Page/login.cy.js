@@ -1,3 +1,4 @@
+import { log } from 'async';
 import LoginPage from '../Components/loginpage/components-loginpage'
 
 describe('Login Tests', () => {
@@ -47,7 +48,7 @@ describe('Login Tests', () => {
 
   it('should hide password input as it is being typed', () => {
     loginPage.fillPassword('secret_sauce');
-    cy.get('[data-test=password]').should('have.attr', 'type', 'password');
+    loginPage.fillPassword2();
   });
 
   it('should retain the username after a failed login attempt', () => {
@@ -55,20 +56,20 @@ describe('Login Tests', () => {
     loginPage.fillPassword('wrong_password');
     loginPage.submit();
     loginPage.errorMessage().should('be.visible');
-    cy.get('[data-test=username]').should('have.value', 'standard_user');
+    loginPage.fillUsernameStandar();
   });
 
   it('should allow user to log in with Enter key', () => {
     loginPage.fillUsername('standard_user');
     loginPage.fillPassword('secret_sauce');
-    cy.get('[data-test=password]').type('{enter}');
+    loginPage.fillPasswordEnter();
     cy.url().should('include', '/inventory.html'); 
   });
 
   it('should display the login button as enabled when fields are filled', () => {
     loginPage.fillUsername('standard_user');
     loginPage.fillPassword('secret_sauce');
-    cy.get('[data-test=login-button]').should('not.be.disabled');
+    loginPage.submitNotDisabled();
   });
 
   it('should not navigate away from login page on failed login', () => {
