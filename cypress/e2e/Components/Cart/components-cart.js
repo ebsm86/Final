@@ -19,7 +19,6 @@ class CartPage {
       this.getCartItems().contains(itemName).parent().parent().find('button').contains('Remove').click();
     }
   
-    // Agregar más métodos para interactuar con otros elementos si es necesario
   }
   
   export default CartPage;

@@ -20,7 +20,7 @@ describe('End-to-End Purchase Test', () => {
     inventoryPage.getProductCards().eq(1).find('button').click();
     inventoryPage.getProductCards().eq(2).find('button').click();
 
-    cy.get('.shopping_cart_link').click();
+    inventoryPage.navigateToCart();
     cartPage.getCheckoutButton().click();
 
     checkoutPage.fillFirstName('John');

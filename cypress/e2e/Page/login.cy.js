@@ -1,6 +1,4 @@
-import LoginPage from '../Components/loginpage/components-loginpage';
-import InventoryPage from '../Components/Inventory/components-inventorypage';
-
+import LoginPage from '../Components/loginpage/components-loginpage'
 
 describe('Login Tests', () => {
   const loginPage = new LoginPage();

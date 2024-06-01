@@ -20,7 +20,7 @@ describe('Checkout Tests', () => {
     
     
     inventoryPage.getProductCards().first().find('button').click();
-    cy.get('.shopping_cart_link').click();
+    inventoryPage.navigateToCart();
     cartPage.getCheckoutButton().click();
   });
 

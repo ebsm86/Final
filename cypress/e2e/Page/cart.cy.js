@@ -17,7 +17,7 @@ describe('Cart Tests', () => {
     inventoryPage.getProductCards().first().find('button').click();
     inventoryPage.getProductCards().eq(1).find('button').click();
     
-    cy.get('.shopping_cart_link').click();
+    inventoryPage.navigateToCart();
   });
 
   it('should display all added items in the cart', () => {
