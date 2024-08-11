@@ -1,7 +1,7 @@
-import { homePage } from '../../pages/homePage';
-import { registerPage } from '../../pages/registerPage';
-import { loginPage } from '../../pages/loginPage';
-import { categoryPage } from '../../pages/categoryPage';
+import { homePage } from '../Components/HomePage/components-HomePage';
+import { registerPage } from '../Components/RegisterPage/components-checkout';
+import { loginPage } from '../Components/loginpage/components-loginpage';
+import { categoryPage } from '../Components/CategoryPage/components-CategoryPage';
 
 describe('CasaIdeas User Actions', () => {
   beforeEach(() => {
